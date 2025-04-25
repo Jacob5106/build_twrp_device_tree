@@ -34,7 +34,10 @@ jobs:
         
       - name: 更新 twrpdtgen
         run: pip3 install --upgrade twrpdtgen
-
+        
+      - name: 下载
+        run: wget ${{ github.event.inputs.IMG }}
+        
       - name: 验证镜像文件
         run: |
           if [ ! -f *.img ]; then
@@ -46,10 +49,7 @@ jobs:
         run: |
           mkdir out
           python3 -m twrpdtgen -o ./out/ *.img > /tmp/aik.log 2>&1 || cat /tmp/aik.log
-       
-      - name: 下载
-        run: wget ${{ github.event.inputs.IMG }}
-        
+         
       - name: 跑
         run: |
           mkdir out

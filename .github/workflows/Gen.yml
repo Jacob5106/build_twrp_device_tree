@@ -24,7 +24,7 @@ jobs:
           sudo apt -y install cpio wget binutils gzip xz-utils
 
       - name: 准备Python3
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v3
         with:
           python-version: ${{ github.event.inputs.PY }}
           cache: 'pip'

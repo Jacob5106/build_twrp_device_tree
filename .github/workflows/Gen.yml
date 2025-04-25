@@ -10,7 +10,7 @@ on:
       IMG:
         description: 'IMG直链'
         required: true
-        default: ''
+        default: 'https://sourceforge.net/projects/action-build-twrp-device-tree/files/CN.Android8/recovery.img'
 jobs:
   build:
     runs-on: ubuntu-latest

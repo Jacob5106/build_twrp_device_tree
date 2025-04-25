@@ -21,7 +21,7 @@ jobs:
       - name: 准备环境
         run: |
           sudo apt update
-          sudo apt -y install cpio wget
+          sudo apt -y install cpio wget binutils gzip xz-utils
 
       - name: 准备Python3
         uses: actions/setup-python@v4
@@ -32,6 +32,14 @@ jobs:
       - name: 准备twrpdtgen
         run: pip3 install -r requirements.txt
         
+      - name: 更新 twrpdtgen
+        run: pip3 install --upgrade twrpdtgen
+
+      - name: 运行 twrpdtgen
+        run: |
+          mkdir out
+          python3 -m twrpdtgen -o ./out/ *.img || cat /tmp/aik.log
+       
       - name: 下载
         run: wget ${{ github.event.inputs.IMG }}
         

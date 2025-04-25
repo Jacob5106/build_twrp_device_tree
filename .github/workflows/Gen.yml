@@ -46,7 +46,7 @@ jobs:
           zip -r -9 DeviceTree.zip ./*
           
       - name: Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v4
         with:
           files: |
             ./out/DeviceTree.zip
